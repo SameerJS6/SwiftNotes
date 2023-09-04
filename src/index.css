@@ -1,3 +1,144 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --on-surface-variant-2: linear-gradient(
+    0deg,
+    rgba(68, 71, 70, 0.08),
+    rgba(68, 71, 70, 0.08)
+  );
+  --on-surface-variant-4: linear-gradient(
+    0deg,
+    rgba(68, 71, 70, 0.12),
+    rgba(68, 71, 70, 0.12)
+  );
+  --on-surface-2: linear-gradient(
+      0deg,
+      rgba(31, 31, 31, 0.08),
+      rgba(31, 31, 31, 0.08)
+    ),
+    rgba(var(--secondary-container), 1);
+  --on-surface-4: linear-gradient(
+      0deg,
+      rgba(31, 31, 31, 0.12),
+      rgba(31, 31, 31, 0.12)
+    ),
+    rgba(var(--secondary-container), 1);
+
+  /* light */
+  --primary: 9, 86, 206;
+  --on-primary: 255, 255, 255;
+
+  --primary-container: 218, 226, 255;
+  --on-primary-container: 0, 24, 71;
+
+  --secondary: 88, 94, 113;
+  --on-secondary: 255, 255, 255;
+
+  --secondary-container: 220, 226, 249;
+  --on-secondary-container: 21, 27, 44;
+
+  --tertiary: 115, 84, 113;
+  --on-tertiary: 255, 255, 255;
+
+  --tertiary-container: 254, 215, 249;
+  --on-tertiary-container: 43, 18, 44;
+
+  --error: 186, 26, 26;
+  --error-container: 255, 218, 214;
+
+  --on-error: 255, 255, 255;
+  --on-error-container: 65, 0, 2;
+
+  --background: 254, 251, 255;
+  --on-background: 31, 31, 31;
+
+  --surface: 254, 251, 255;
+  --on-surface: 31, 31, 31;
+
+  --surface-variant: 225, 226, 236;
+  --on-surface-variant: 69, 70, 79;
+
+  --outline: 117, 119, 128;
+
+  --inverse-on-surface: 242, 240, 244;
+  --inverse-surface: 48, 48, 52;
+
+  --scrim-container: rgb(31 31 31 / 64%);
+  --scrim-control: rgb(255 255 255 / 12%);
+  --scrim-control-pressed: rgb(255 255 255 / 24%);
+
+  --elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 1px 3px 1px rgb(0 0 0 / 15%);
+  --elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 2px 6px 2px rgb(0 0 0 / 15%);
+  --elevation-3: 0px 1px 3px 0px rgb(0 0 0 / 30%),
+    0px 4px 8px 3px rgb(0 0 0 / 15%);
+}
+
+.darkMode {
+  --on-surface-variant-2: linear-gradient(
+    0deg,
+    rgba(196, 199, 197, 0.08),
+    rgba(196, 199, 197, 0.08)
+  );
+  --on-surface-variant-4: linear-gradient(
+    0deg,
+    rgba(196, 199, 197, 0.12),
+    rgba(196, 199, 197, 0.12)
+  );
+  --on-surface-2: linear-gradient(
+      0deg,
+      rgba(227, 227, 227, 0.08),
+      rgba(227, 227, 227, 0.08)
+    ),
+    rgba(var(--secondary-container), 1);
+  --on-surface-4: linear-gradient(
+      0deg,
+      rgba(227, 227, 227, 0.12),
+      rgba(227, 227, 227, 0.12)
+    ),
+    rgba(var(--secondary-container), 1);
+  /* dark */
+  --primary: 178, 197, 255;
+  --on-primary: 0, 44, 114;
+
+  --primary-container: 0, 64, 160;
+  --on-primary-container: 218, 226, 255;
+
+  --secondary: 192, 198, 221;
+  --on-secondary: 42, 48, 66;
+
+  --secondary-container: 64, 70, 89;
+  --on-secondary-container: 220, 226, 249;
+
+  --tertiary: 225, 187, 221;
+  --on-tertiary: 65, 39, 65;
+
+  --tertiary-container: 90, 61, 89;
+  --on-tertiary-container: 254, 215, 249;
+
+  --error: 255, 180, 171;
+  --error-container: 147, 0, 10;
+
+  --on-error: 105, 0, 5;
+  --on-error-container: 255, 218, 214;
+
+  --background: 31, 31, 31;
+  --on-background: 227, 227, 227;
+
+  --surface: 31, 31, 31;
+  --on-surface: 227, 227, 227;
+
+  --surface-variant: 69, 70, 79;
+  --on-surface-variant: 197, 198, 208;
+
+  --outline: 143, 144, 154;
+
+  --inverse-on-surface: 31, 31, 31;
+  --inverse-surface: 227, 227, 227;
+
+  /* Custom Colors */
+  --md-custom-color-Success: 39, 84, 9;
+}
