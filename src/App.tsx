@@ -1,52 +1,55 @@
+import Button from "@/Shared/Button";
+
 type Props = {};
 
 export default function App({}: Props) {
   return (
     <>
-      <div className="bg-primary text-onPrimary shadow-elevation-1 mb-4 p-4">
+      <Button />
+      <div className="mb-4 bg-primary p-4 text-onPrimary shadow-elevation-1">
         <h2 className="text-display-lg">Note Sync</h2>
       </div>
-      <div className="bg-primaryContainer text-onPrimaryContainer shadow-elevation-2 mb-4 p-4">
+      <div className="mb-4 bg-primaryContainer p-4 text-onPrimaryContainer shadow-elevation-2">
         <h2 className="text-display-md">Note Sync</h2>
       </div>
-      <div className="bg-secondary text-onSecondary shadow-elevation-3 mb-4 p-4">
+      <div className="mb-4 bg-secondary p-4 text-onSecondary shadow-elevation-3">
         <h2 className="text-display-sm">Note Sync</h2>
       </div>
-      <div className="bg-secondaryContainer text-onSecondaryContainer p-4">
+      <div className="bg-secondaryContainer p-4 text-onSecondaryContainer">
         <h2 className="text-headline-lg">Note Sync</h2>
       </div>
-      <div className="bg-tertiary text-onTertiary p-4">
+      <div className="bg-tertiary p-4 text-onTertiary">
         <h2 className="text-headline-md">Note Sync</h2>
       </div>
-      <div className="bg-tertiaryContainer text-onTertiaryContainer p-4">
+      <div className="bg-tertiaryContainer p-4 text-onTertiaryContainer">
         <h2 className="text-headline-sm">Note Sync</h2>
       </div>
-      <div className="bg-error text-onError p-4">
+      <div className="bg-error p-4 text-onError">
         <h2 className="text-title-lg">Note Sync</h2>
       </div>
-      <div className="bg-errorContainer text-onErrorContainer p-4">
+      <div className="bg-errorContainer p-4 text-onErrorContainer">
         <h2 className="text-title-md">Note Sync</h2>
       </div>
-      <div className="bg-background text-onBackground p-4">
+      <div className="bg-background p-4 text-onBackground">
         <h2 className="text-title-sm">Note Sync</h2>
       </div>
-      <div className="bg-surface text-onSurface p-4">
+      <div className="bg-surface p-4 text-onSurface">
         <h2 className="text-body-lg">Note Sync</h2>
       </div>
 
-      <div className="bg-surfaceContainerLowest text-onSurface p-4 mt-9">
+      <div className="mt-9 bg-surfaceContainerLowest p-4 text-onSurface">
         <h2 className="text-body-md">Note Sync</h2>
       </div>
-      <div className="bg-surfaceContainerLow text-onSurface p-4">
+      <div className="bg-surfaceContainerLow p-4 text-onSurface">
         <h2 className="text-body-sm">Note Sync</h2>
       </div>
-      <div className="bg-surfaceContainer text-onSurface p-4">
+      <div className="bg-surfaceContainer p-4 text-onSurface">
         <h2 className="text-label-lg">Note Sync</h2>
       </div>
-      <div className="bg-surfaceContainerHigh text-onSurface p-4">
+      <div className="bg-surfaceContainerHigh p-4 text-onSurface">
         <h2 className="text-label-lg">Note Sync</h2>
       </div>
-      <div className="bg-surfaceContainerHighest text-onSurface p-4">
+      <div className="bg-surfaceContainerHighest p-4 text-onSurface">
         <h2 className="text-label-lg">Note Sync</h2>
       </div>
     </>
