@@ -23,7 +23,7 @@ export default {
       onSecondary: withOpacity("--on-secondary"),
 
       secondaryContainer: withOpacity("--secondary-container"),
-      onSecondayContainer: withOpacity("--on-secondary-container"),
+      onSecondaryContainer: withOpacity("--on-secondary-container"),
 
       tertiary: withOpacity("--tertiary"),
       onTertiary: withOpacity("--on-tertiary"),
@@ -37,6 +37,9 @@ export default {
       onError: withOpacity("--on-error"),
       onErrorContainer: withOpacity("--on-error-container"),
 
+      outline: withOpacity("--outline"),
+      outlineVariant: withOpacity("--outline-variant"),
+
       background: withOpacity("--background"),
       onBackground: withOpacity("--on-background"),
 
@@ -46,10 +49,14 @@ export default {
       inverseSurface: withOpacity("--inverse-surface"),
       inverseOnSurface: withOpacity("--inverse-on-surface"),
 
-      outline: withOpacity("--outline"),
-      scrimContainer: "var(--scrim-container)",
-      scrimControl: "var(--scrim-control)",
-      scrimControlPressed: "var(--scrim-control-pressed)",
+      surfaceContainerLowest: withOpacity("--surface-container-lowest"),
+      surfaceContainerLow: withOpacity("--surface-container-low"),
+      surfaceContainer: withOpacity("--surface-container"),
+      surfaceContainerHigh: withOpacity("--surface-container-high"),
+      surfaceContainerHighest: withOpacity("--surface-container-highest"),
+
+      surfaceDim: withOpacity("--surface-dim"),
+      surfaceBright: withOpacity("--surface-bright"),
     },
     fontSize: {
       "display-lg": [

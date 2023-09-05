@@ -12,10 +12,10 @@
 
 @font-face {
   font-family: "Roboto";
-  font-weight: 400;
+  font-weight: 500;
   src:
-    url("./assets/font/roboto-regular.woff2") format("woff2"),
-    url("./assets/font/roboto-regular.woff2") format("woff");
+    url("./assets/font/roboto-medium.woff2") format("woff2"),
+    url("./assets/font/roboto-medium.woff2") format("woff");
 }
 
 body {
@@ -24,31 +24,9 @@ body {
 }
 
 :root {
-  --on-surface-variant-2: linear-gradient(
-    0deg,
-    rgba(68, 71, 70, 0.08),
-    rgba(68, 71, 70, 0.08)
-  );
-  --on-surface-variant-4: linear-gradient(
-    0deg,
-    rgba(68, 71, 70, 0.12),
-    rgba(68, 71, 70, 0.12)
-  );
-  --on-surface-2: linear-gradient(
-      0deg,
-      rgba(31, 31, 31, 0.08),
-      rgba(31, 31, 31, 0.08)
-    ),
-    rgba(var(--secondary-container), 1);
-  --on-surface-4: linear-gradient(
-      0deg,
-      rgba(31, 31, 31, 0.12),
-      rgba(31, 31, 31, 0.12)
-    ),
-    rgba(var(--secondary-container), 1);
-
   /* light */
-  --primary: 9, 86, 206;
+  /* --primary: 9, 86, 206; */
+  --primary: 8, 86, 207;
   --on-primary: 255, 255, 255;
 
   --primary-container: 218, 226, 255;
@@ -72,23 +50,28 @@ body {
   --on-error: 255, 255, 255;
   --on-error-container: 65, 0, 2;
 
+  --outline: 117, 119, 128;
+  --outline-variant: 197, 198, 208;
+
   --background: 254, 251, 255;
   --on-background: 31, 31, 31;
 
-  --surface: 254, 251, 255;
+  --surface: 251, 248, 253;
   --on-surface: 31, 31, 31;
+  --surface-dim: 219, 217, 221;
+  --surface-bright: 251, 248, 253;
 
   --surface-variant: 225, 226, 236;
   --on-surface-variant: 69, 70, 79;
 
-  --outline: 117, 119, 128;
-
   --inverse-on-surface: 242, 240, 244;
   --inverse-surface: 48, 48, 52;
 
-  --scrim-container: rgb(31 31 31 / 64%);
-  --scrim-control: rgb(255 255 255 / 12%);
-  --scrim-control-pressed: rgb(255 255 255 / 24%);
+  --surface-container-highest: 228, 226, 230;
+  --surface-container-high: 233, 231, 236;
+  --surface-container: 239, 237, 241;
+  --surface-container-low: 245, 243, 247;
+  --surface-container-lowest: 255, 255, 255;
 
   --elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%),
     0px 1px 3px 1px rgb(0 0 0 / 15%);
@@ -99,28 +82,6 @@ body {
 }
 
 .darkMode {
-  --on-surface-variant-2: linear-gradient(
-    0deg,
-    rgba(196, 199, 197, 0.08),
-    rgba(196, 199, 197, 0.08)
-  );
-  --on-surface-variant-4: linear-gradient(
-    0deg,
-    rgba(196, 199, 197, 0.12),
-    rgba(196, 199, 197, 0.12)
-  );
-  --on-surface-2: linear-gradient(
-      0deg,
-      rgba(227, 227, 227, 0.08),
-      rgba(227, 227, 227, 0.08)
-    ),
-    rgba(var(--secondary-container), 1);
-  --on-surface-4: linear-gradient(
-      0deg,
-      rgba(227, 227, 227, 0.12),
-      rgba(227, 227, 227, 0.12)
-    ),
-    rgba(var(--secondary-container), 1);
   /* dark */
   --primary: 178, 197, 255;
   --on-primary: 0, 44, 114;
@@ -146,20 +107,32 @@ body {
   --on-error: 105, 0, 5;
   --on-error-container: 255, 218, 214;
 
+  --outline: 143, 144, 154;
+  --outline-variant: 69, 70, 79;
+
   --background: 31, 31, 31;
   --on-background: 227, 227, 227;
 
-  --surface: 31, 31, 31;
-  --on-surface: 227, 227, 227;
+  --surface: 19, 19, 22;
+  --on-surface: 199, 198, 202;
+  --surface-dim: 19, 19, 22;
+  --surface-bright: 57, 57, 60;
 
   --surface-variant: 69, 70, 79;
   --on-surface-variant: 197, 198, 208;
 
-  --outline: 143, 144, 154;
-
   --inverse-on-surface: 31, 31, 31;
   --inverse-surface: 227, 227, 227;
 
+  --surface-container-highest: 52, 52, 56;
+  --surface-container-high: 41, 42, 45;
+  --surface-container: 31, 31, 35;
+  --surface-container-low: 27, 27, 31;
+  --surface-container-lowest: 13, 14, 17;
   /* Custom Colors */
   --md-custom-color-Success: 39, 84, 9;
+}
+
+body {
+  background-color: rgb(var(--background));
 }
