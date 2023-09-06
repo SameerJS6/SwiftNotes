@@ -18,6 +18,7 @@ const buttonVariants = cva(
         default: "px-4 py-2 min-w-[80px]",
         sm: "h-9 px-3",
         lg: "h-11 px-8",
+        block: "w-full py-2.5",
         icon: "h-10 w-10",
         icon2:
           "rounded-xl h-12 w-12 active:rounded-3xl hover:shadow-elevation-2",
