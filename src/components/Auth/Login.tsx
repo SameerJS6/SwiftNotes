@@ -26,6 +26,7 @@ export default function Login({}: Props) {
       navigate("/account");
     } catch (err: any) {
       setLoading(false);
+      console.log(error); //Added to Avoid the Error by TypeScript Engine
       console.log("Error Code", err.code);
       console.log("Error", err.message);
     }

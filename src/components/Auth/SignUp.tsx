@@ -28,6 +28,7 @@ export default function SignUp({}: Props) {
       setLoading(false);
     } catch (err: any) {
       setLoading(false);
+      console.log(error) //Added to Avoid the Error by TypeScript Engine
       console.error(err.code, err.message);
     }
   };
