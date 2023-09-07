@@ -25,10 +25,11 @@ export default function GoogleSignIn({}: GoogleSignInProps) {
 
   return (
     <Button
-      onClick={signInWithGoogle}
       size="block"
       disabled={loading}
-      className="group gap-2 rounded-xl bg-surfaceContainerLow text-label-lg text-onSurface hover:bg-secondaryContainer/70 active:rounded-3xl active:bg-secondaryContainer active:text-onSecondaryContainer "
+      onClick={signInWithGoogle}
+      rippleColour="rgba(var(--inverse-surface), 0.1)"
+      className="group gap-2 rounded-xl border border-onSurface/10 bg-surfaceContainerLow text-label-lg text-onSurface hover:border-onSurface/25 hover:bg-secondaryContainer/70 active:rounded-3xl active:bg-secondaryContainer active:text-onSecondaryContainer "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

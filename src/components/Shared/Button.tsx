@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "./utils/utils";
+import useRipple from "use-ripple-hook";
 
 const buttonVariants = cva(
   "inline-flex items-center active:rounded-xl justify-center rounded-3xl text-label-lg transition-all duration-[250ms] ease-in-out focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-2 focus-visible:ring-onBackground disabled:pointer-events-none disabled:opacity-50 capitalize select-none touch-none",
@@ -41,17 +42,23 @@ const buttonVariants = cva(
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  rippleColour?: string;
+}
 
 function Button({
   className,
   elevation,
+  rippleColour = "rgba(var(--surface-bright), 0.15)",
   size,
   variant,
   ...props
 }: ButtonProps) {
+  const [ripple, event] = useRipple({ color: rippleColour });
   return (
     <button
+      ref={ripple}
+      onMouseDown={event}
       {...props}
       className={cn(buttonVariants({ elevation, variant, size, className }))}
     />
