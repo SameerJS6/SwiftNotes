@@ -4,6 +4,8 @@ import { Button } from "@/Shared/Button";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleSignIn from "./GoogleSignIn";
 import GithubSignIn from "./GithubSignIn";
+import Input from "@/Shared/Input";
+import Label from "@/Shared/Label";
 
 type Props = {};
 
@@ -34,46 +36,49 @@ export default function Login({}: Props) {
   return (
     <article className="mx-auto w-full max-w-sm rounded-[2rem] bg-surfaceContainerLowest p-10 py-8 shadow-elevation-1">
       <h1 className="mb-6 text-display-sm capitalize text-onSurface">log in</h1>
-      <div className="my-6 flex items-center gap-4">
+
+      <div className="my-8 flex items-center gap-4">
         <GoogleSignIn />
         <span className="h-6 w-0.5 bg-outlineVariant"></span>
         <GithubSignIn />
       </div>
-      <form className="grid gap-4" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-2">
-          <label
-            className="text-label-lg capitalize text-onSurface"
-            htmlFor="email"
-          >
-            Email:
-          </label>
-          <input
+
+      <form className="grid gap-5" onSubmit={handleSubmit}>
+        <div className="relative">
+          <Input
             type="email"
             autoFocus
             required
             id="email"
+            autoComplete="off"
             value={email}
             disabled={loading}
-            className="rounded-md bg-surfaceContainerLow p-2.5 text-label-lg text-onSurface focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-onBackground focus-visible:ring-offset-2"
+            className="rounded-3xl focus:rounded-xl"
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label
-            className="text-label-lg capitalize text-onSurface"
-            htmlFor="password"
+          <Label
+            className="text-label-md peer-focus:text-[12px] peer-focus:font-medium peer-focus:leading-4 peer-focus:tracking-[0.03125em] peer-focus:text-primary"
+            htmlFor="email"
           >
-            password:
-          </label>
-          <input
+            Email
+          </Label>
+        </div>
+        <div className="relative">
+          <Input
             type="password"
             required
             id="password"
             value={password}
             disabled={loading}
-            className="rounded-md bg-surfaceContainerLow p-2.5 text-label-lg text-onSurface focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-onBackground focus-visible:ring-offset-2"
+            className="rounded-3xl focus:rounded-xl"
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Label
+            className="text-label-md peer-focus:text-[12px] peer-focus:font-medium peer-focus:leading-4 peer-focus:tracking-[0.03125em] peer-focus:text-primary"
+            htmlFor="password"
+          >
+            Password
+          </Label>
         </div>
 
         <div className="mt-4">
