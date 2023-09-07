@@ -57,6 +57,8 @@ export default {
 
       surfaceDim: withOpacity("--surface-dim"),
       surfaceBright: withOpacity("--surface-bright"),
+
+      transparent: 'transparent'
     },
     fontSize: {
       "display-lg": [

@@ -136,3 +136,11 @@ body {
 body {
   background-color: rgb(var(--background));
 }
+
+.inputShadow:focus {
+  box-shadow: inset 1px 0 rgb(var(--primary)), inset -1px 0 rgb(var(--primary)), inset 0 -1px rgb(var(--primary)),  inset 0 1px rgb(var(--primary));
+}
+.onSurface {
+  color: rgb(var(--on-surface));
+  @apply absolute -top-2 left-3.5 bg-surfaceContainerLowest transition-all duration-200 ease-in-out 
+}
