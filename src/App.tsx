@@ -1,9 +1,11 @@
 import Login from "@/Auth/Login";
 import SignUp from "@/Auth/SignUp";
-import { Button, buttonVariants } from "@/Shared/Button";
+import { buttonVariants } from "@/Shared/Button";
 import { Link, Route, Routes } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import ProtectedRoutes from "@/ProtectedRoutes";
+import Header from "@/UI/Header";
+import Sidebar from "@/UI/Sidebar";
 
 type Props = {};
 
@@ -11,6 +13,9 @@ export default function App({}: Props) {
   const { logout, currentUser } = useAuth();
   return (
     <>
+      <Header />
+      <Sidebar />
+      
       <div className="my-12 flex flex-wrap items-center justify-center gap-4">
         <Link
           to="/"
@@ -51,47 +56,29 @@ export default function App({}: Props) {
             <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
           </svg>
         </Link>
-        {!currentUser && (
-          <div className="flex items-center gap-4">
-            {/* Login Button  */}
-            <Link
-              to="/login"
-              className={buttonVariants({
-                variant: "default",
-                size: "default",
-              })}
-            >
-              Log in
-            </Link>
-            {/* Sign Up Button  */}
-            <Link
-              to="/signup"
-              className={buttonVariants({
-                variant: "outline",
-                size: "default",
-              })}
-            >
-              Sign Up
-            </Link>
-          </div>
-        )}
 
         {/* Log Out Button  */}
-        <Button
+        <Link
+          to="/"
+          className={`${
+            !currentUser
+              ? "pointer-events-none opacity-50"
+              : "pointer-events-auto opacity-100"
+          } ${buttonVariants({ variant: "ghost", size: "default" })}`}
           onClick={logout}
-          disabled={!currentUser ? true : false}
-          variant="ghost"
-          size="default"
         >
           log out
-        </Button>
+        </Link>
       </div>
+
       <main className="px-4">
         <Routes>
           <Route
             path="/"
             element={
-              <h1 className="text-center text-display-lg">This is Home Page</h1>
+              <h1 className="text-center text-display-lg text-onSurface">
+                This is Home Page
+              </h1>
             }
           ></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -100,7 +87,7 @@ export default function App({}: Props) {
             path="/account"
             element={
               <ProtectedRoutes>
-                <h1 className="text-center text-display-lg">
+                <h1 className="text-center text-display-lg text-onSurface">
                   This is Account Page
                 </h1>
               </ProtectedRoutes>
