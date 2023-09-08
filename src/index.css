@@ -135,12 +135,22 @@ body {
 
 body {
   background-color: rgb(var(--background));
+  transition: background-color 250ms ease-in-out;
 }
 
 .inputShadow:focus {
-  box-shadow: inset 1px 0 rgb(var(--primary)), inset -1px 0 rgb(var(--primary)), inset 0 -1px rgb(var(--primary)),  inset 0 1px rgb(var(--primary));
+  box-shadow:
+    inset 1px 0 rgb(var(--primary)),
+    inset -1px 0 rgb(var(--primary)),
+    inset 0 -1px rgb(var(--primary)),
+    inset 0 1px rgb(var(--primary));
 }
 .onSurface {
   color: rgb(var(--on-surface));
-  @apply absolute -top-2 left-3.5 bg-surfaceContainerLowest transition-all duration-200 ease-in-out 
+  @apply absolute -top-2 left-3.5 bg-surfaceContainerLowest transition-all duration-250 ease-in-out;
+}
+
+/* Theme Toggle  */
+.theme-toggle > svg {
+  @apply h-6 w-6 fill-onSurface/90 transition-all duration-250 ease-in-out group-hover:fill-onSurface/100;
 }
