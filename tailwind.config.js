@@ -58,7 +58,7 @@ export default {
       surfaceDim: withOpacity("--surface-dim"),
       surfaceBright: withOpacity("--surface-bright"),
 
-      transparent: 'transparent'
+      transparent: "transparent",
     },
     fontSize: {
       "display-lg": [
@@ -127,6 +127,9 @@ export default {
         "elevation-1": "var(--elevation-1)",
         "elevation-2": "var(--elevation-2)",
         "elevation-3": "var(--elevation-3)",
+      },
+      transitionDuration: {
+        250: "250ms",
       },
     },
   },
