@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import { Link } from "react-router-dom";
 import useRipple from "use-ripple-hook";
 import { useAuth } from "../../context/AuthContext";
+import Tooltip from "@/Shared/Tooltip";
 
 type HeaderProps = {};
 
@@ -72,52 +73,58 @@ export default function Header({}: HeaderProps) {
           {/* Right Side  */}
           {currentUser && (
             <div className="flex items-center">
-              <Button
-                rippleColour="rgb(var(--on-secondary-container), 0.1)"
-                className="group"
-                variant="ghostSurface"
-                size="icon"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 -960 960 960"
-                  // height="24"
-                  // width="24"
-                  className="h-[22px] w-[22px] fill-onSurface/80 group-hover:fill-onSurface/100 sm:h-6 sm:w-6"
+              <Tooltip content="Search">
+                <Button
+                  rippleColour="rgb(var(--on-secondary-container), 0.1)"
+                  className="group"
+                  variant="ghostSurface"
+                  size="icon"
                 >
-                  <path d="M384.035-336Q284-336 214-406t-70-170q0-100 70-170t170-70q100 0 170 70t70 170.035q0 40.381-12.5 76.173T577-434l214 214q11 11 11 25t-11 25q-11 11-25.5 11T740-170L526-383q-30 22-65.792 34.5T384.035-336ZM384-408q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Z" />
-                </svg>
-              </Button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 -960 960 960"
+                    // height="24"
+                    // width="24"
+                    className="h-[22px] w-[22px] fill-onSurface/80 group-hover:fill-onSurface/100 sm:h-6 sm:w-6"
+                  >
+                    <path d="M384.035-336Q284-336 214-406t-70-170q0-100 70-170t170-70q100 0 170 70t70 170.035q0 40.381-12.5 76.173T577-434l214 214q11 11 11 25t-11 25q-11 11-25.5 11T740-170L526-383q-30 22-65.792 34.5T384.035-336ZM384-408q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Z" />
+                  </svg>
+                </Button>
+              </Tooltip>
               {/* List View  */}
-              <Button
-                rippleColour="rgb(var(--on-secondary-container), 0.1)"
-                className="group"
-                onClick={() => setListView(!listView)}
-                variant="ghostSurface"
-                size="icon"
+              <Tooltip
+                content={!listView ? "List View (Grid)" : "List View (Flex)"}
               >
-                {listView ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 -960 960 960"
-                    // height="24"
-                    // width="24"
-                    className="h-[22px] w-[22px] fill-onSurface/90 group-hover:fill-onSurface/100 sm:h-6 sm:w-6"
-                  >
-                    <path d="M200-520q-33 0-56.5-23.5T120-600v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v160q0 33-23.5 56.5T760-520H200Zm0-80h560v-160H200v160Zm0 480q-33 0-56.5-23.5T120-200v-160q0-33 23.5-56.5T200-440h560q33 0 56.5 23.5T840-360v160q0 33-23.5 56.5T760-120H200Zm0-80h560v-160H200v160Zm0-560v160-160Zm0 400v160-160Z" />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 -960 960 960"
-                    // height="24"
-                    // width="24"
-                    className="h-[22px] w-[22px] fill-onSurface/90 group-hover:fill-onSurface/100 sm:h-6 sm:w-6"
-                  >
-                    <path d="M144-528v-288h288v288H144Zm0 384v-288h288v288H144Zm384-384v-288h288v288H528Zm0 384v-288h288v288H528ZM216-600h144v-144H216v144Zm384 0h144v-144H600v144Zm0 384h144v-144H600v144Zm-384 0h144v-144H216v144Zm384-384Zm0 240Zm-240 0Zm0-240Z" />
-                  </svg>
-                )}
-              </Button>
+                <Button
+                  rippleColour="rgb(var(--on-secondary-container), 0.1)"
+                  className="group"
+                  onClick={() => setListView(!listView)}
+                  variant="ghostSurface"
+                  size="icon"
+                >
+                  {listView ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 -960 960 960"
+                      // height="24"
+                      // width="24"
+                      className="h-[22px] w-[22px] fill-onSurface/90 group-hover:fill-onSurface/100 sm:h-6 sm:w-6"
+                    >
+                      <path d="M200-520q-33 0-56.5-23.5T120-600v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v160q0 33-23.5 56.5T760-520H200Zm0-80h560v-160H200v160Zm0 480q-33 0-56.5-23.5T120-200v-160q0-33 23.5-56.5T200-440h560q33 0 56.5 23.5T840-360v160q0 33-23.5 56.5T760-120H200Zm0-80h560v-160H200v160Zm0-560v160-160Zm0 400v160-160Z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 -960 960 960"
+                      // height="24"
+                      // width="24"
+                      className="h-[22px] w-[22px] fill-onSurface/90 group-hover:fill-onSurface/100 sm:h-6 sm:w-6"
+                    >
+                      <path d="M144-528v-288h288v288H144Zm0 384v-288h288v288H144Zm384-384v-288h288v288H528Zm0 384v-288h288v288H528ZM216-600h144v-144H216v144Zm384 0h144v-144H600v144Zm0 384h144v-144H600v144Zm-384 0h144v-144H216v144Zm384-384Zm0 240Zm-240 0Zm0-240Z" />
+                    </svg>
+                  )}
+                </Button>{" "}
+              </Tooltip>
               <DarkMode />
               <div className="p-2">
                 <Profile />
