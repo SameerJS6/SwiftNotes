@@ -1,5 +1,5 @@
 import { Button } from "@/Shared/Button";
-import { FormEvent, useState } from "react";
+import { FormEvent, useLayoutEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Input from "@/Shared/Input";
@@ -15,7 +15,7 @@ export default function SignUp({}: Props) {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { signup } = useAuth();
+  const { signup, currentUser } = useAuth();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -35,9 +35,14 @@ export default function SignUp({}: Props) {
     }
   };
 
+  useLayoutEffect(() => {
+    if (currentUser) {
+      return navigate("/account");
+    }
+  }, [currentUser]);
   return (
     <>
-      <article className="mx-auto w-full max-w-sm rounded-[2rem] bg-surfaceContainerLowest p-10 py-8 shadow-elevation-1">
+      <article className="duration-250 mx-auto w-full max-w-sm rounded-[2rem] bg-surfaceContainerLowest p-10 py-8 shadow-elevation-1 transition-all ease-in-out">
         <h1 className="mb-6 text-display-sm text-onSurface">Sign Up</h1>
         <form className="grid gap-4" onSubmit={handleSubmit}>
           <div className="relative">

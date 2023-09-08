@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useLayoutEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Button } from "@/Shared/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ export default function Login({}: Props) {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, currentUser } = useAuth();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -33,8 +33,14 @@ export default function Login({}: Props) {
       console.log("Error", err.message);
     }
   };
+
+  useLayoutEffect(() => {
+    if (currentUser) {
+    return  navigate('/account')
+    }
+  }, [currentUser])
   return (
-    <article className="mx-auto w-full max-w-sm rounded-[2rem] bg-surfaceContainerLowest p-10 py-8 shadow-elevation-1">
+    <article className="mx-auto w-full max-w-sm rounded-[2rem] bg-surfaceContainerLowest p-10 py-8 shadow-elevation-1 transition-all duration-250 ease-in-out">
       <h1 className="mb-6 text-display-sm capitalize text-onSurface">log in</h1>
 
       <div className="my-8 flex items-center gap-4">
