@@ -154,3 +154,10 @@ body {
 .theme-toggle > svg {
   @apply duration-250 h-[22px] w-[22px] fill-onSurface/90 transition-all ease-in-out group-hover:fill-onSurface/100 sm:h-6 sm:w-6;
 }
+
+.sidebar {
+  position: fixed;
+  /* top: 82.17px; */
+  height: 100%;
+  min-height: auto;
+}
