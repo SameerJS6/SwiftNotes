@@ -58,6 +58,8 @@ export default {
       surfaceDim: withOpacity("--surface-dim"),
       surfaceBright: withOpacity("--surface-bright"),
 
+      overlay: withOpacity("--overlay"),
+
       transparent: "transparent",
     },
     fontSize: {
@@ -130,6 +132,42 @@ export default {
       },
       transitionDuration: {
         250: "250ms",
+      },
+      keyframes: {
+        overlayShow: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        overlayHide: {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
+        sidebarShow: {
+          from: {
+            transform: "translate(-15%, 0)",
+            opacity: 0,
+          },
+          to: {
+            transform: "translate(0, 0)",
+            opacity: 1,
+          },
+        },
+        sidebarHide: {
+          from: {
+            transform: "translate(0, 0)",
+            opacity: 1,
+          },
+          to: {
+            transform: "translate(-350px, 0)",
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        overlayShow: "overlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        overlayHide: "overlayHide 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        sidebarShow: "sidebarShow 250ms cubic-bezier(0.16, 1, 0.3, 1)",
+        sidebarHide: "sidebarHide 200ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
