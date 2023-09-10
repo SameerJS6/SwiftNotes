@@ -73,6 +73,8 @@ body {
   --surface-container-low: 245, 243, 247;
   --surface-container-lowest: 255, 255, 255;
 
+  --overlay: 31, 31, 31;
+
   --elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%),
     0px 1px 3px 1px rgb(0 0 0 / 15%);
   --elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%),
@@ -131,6 +133,8 @@ body {
   --surface-container-lowest: 13, 14, 17;
   /* Custom Colors */
   --md-custom-color-Success: 39, 84, 9;
+
+  --overlay: 19, 19, 22;
 }
 
 body {
