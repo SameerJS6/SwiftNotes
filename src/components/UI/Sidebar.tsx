@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { Button } from "@/Shared/Button";
 import * as Dialog from "@radix-ui/react-dialog";
-import NavLinks from "@/Shared/NavLinks";
+import NavLink from "@/Shared/NavLink";
 import { useLocation } from "react-router-dom";
 
 type SidebarProps = {
@@ -108,7 +108,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             <nav>
               <ul className="flex flex-col gap-0.5">
                 {navLinks.map((link, index) => (
-                  <NavLinks
+                  <NavLink
                     setSidebarOpen={setSidebarOpen}
                     key={index}
                     {...link}
