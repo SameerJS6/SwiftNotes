@@ -6,16 +6,20 @@ import { useAuth } from "./context/AuthContext";
 import ProtectedRoutes from "@/ProtectedRoutes";
 import Header from "@/UI/Header";
 import Sidebar from "@/UI/Sidebar";
+import { useState } from "react";
 
 type Props = {};
 
 export default function App({}: Props) {
   const { logout, currentUser } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
-      <Header />
-      <Sidebar />
-      
+      <Header setSidebarOpen={setSidebarOpen} />
+      {currentUser && (
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      )}
+
       <div className="my-12 flex flex-wrap items-center justify-center gap-4">
         <Link
           to="/"
