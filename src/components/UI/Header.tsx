@@ -1,5 +1,5 @@
 import { Button, buttonVariants } from "@/Shared/Button";
-import { useState } from "react";
+import { Dispatch, useState } from "react";
 import DarkMode from "./DarkMode";
 import Profile from "./Profile";
 import { Link } from "react-router-dom";
@@ -7,15 +7,17 @@ import useRipple from "use-ripple-hook";
 import { useAuth } from "../../context/AuthContext";
 import Tooltip from "@/Shared/Tooltip";
 
-type HeaderProps = {};
+type HeaderProps = {
+  setSidebarOpen: Dispatch<React.SetStateAction<boolean>>;
+};
 
-export default function Header({}: HeaderProps) {
+export default function Header({ setSidebarOpen }: HeaderProps) {
   const { currentUser } = useAuth();
   const [listView, setListView] = useState(false); //By default, its going to be Grid so false, and if it is true then flex
   const [ripple, event] = useRipple({ color: "rgb(var(--surface), 0.15)" });
 
   return (
-    <header className="duration-250 bg-surfaceContainerLow/50 py-4 transition-all ease-in-out">
+    <header className="bg-surfaceContainerLow/50 py-4 transition-all duration-250 ease-in-out">
       <nav className="mx-auto max-w-[1440px] px-2 sm:px-8">
         <div className="flex items-center justify-between">
           {/* Left Side  */}
@@ -23,8 +25,9 @@ export default function Header({}: HeaderProps) {
             {currentUser && (
               <Button
                 rippleColour="rgb(var(--on-secondary-container), 0.1)"
-                className="group"
+                onClick={() => setSidebarOpen(true)}
                 variant="ghostSurface"
+                className="group"
                 size="icon"
               >
                 <svg
@@ -38,9 +41,9 @@ export default function Header({}: HeaderProps) {
                 </svg>
               </Button>
             )}
-            <h1 className="text-title-md text-onSurface sm:text-headline-lg lg:text-headline-lg">
+            <Link to={currentUser ? "/home" : '/'} className="text-title-md text-onSurface sm:text-headline-lg lg:text-headline-lg">
               Note Sync
-            </h1>
+            </Link>
           </div>
 
           {/* Login  */}
