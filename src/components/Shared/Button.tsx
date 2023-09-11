@@ -48,7 +48,7 @@ interface ButtonProps
   rippleColour?: string;
 }
 
-function Button({
+function CustomButton({
   className,
   elevation,
   rippleColour = "rgba(var(--surface-bright), 0.15)",
@@ -67,4 +67,4 @@ function Button({
   );
 }
 
-export { Button, buttonVariants };
+export { CustomButton as Button, buttonVariants };
