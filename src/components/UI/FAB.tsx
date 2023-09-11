@@ -12,7 +12,7 @@ export default function Fab({}: Props) {
         <Link
           ref={ripple}
           onMouseDown={event}
-          to="/create-new-note"
+          to="/create-note"
           className="focusState fixed bottom-10 right-6 z-[1] rounded-2xl bg-primary fill-onPrimary p-3.5 text-body-lg transition-all duration-250 ease-in-out hover:bg-primary/90 hover:shadow-elevation-1 active:rounded-3xl sm:bottom-12 sm:right-10 sm:p-4 md:bottom-14 lg:bottom-16 lg:right-16"
         >
           <svg
