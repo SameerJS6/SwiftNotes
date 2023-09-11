@@ -21,7 +21,7 @@ export default function App({}: Props) {
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       )}
 
-      <Fab />
+      {currentUser && <Fab />}
 
       {currentUser && (
         <div className="my-12 flex flex-wrap items-center justify-center gap-4">
@@ -126,7 +126,7 @@ export default function App({}: Props) {
             path="/create-note"
             element={
               <h1 className="text-center text-display-lg text-onSurface">
-                Create New Note
+                Create New Note Page
               </h1>
             }
           ></Route>
