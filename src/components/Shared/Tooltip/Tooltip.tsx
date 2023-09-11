@@ -7,17 +7,21 @@ type TooltipProps = {
   children?: ReactNode;
   content: string;
   className?: string;
+  asChild?: boolean;
 };
 
 export default function Tooltip({
   children,
   content,
   className,
+  asChild,
 }: TooltipProps) {
   return (
     <TooltipPrimitive.Provider delayDuration={200} skipDelayDuration={150}>
       <TooltipPrimitive.Root>
-        <TooltipPrimitive.Trigger>{children}</TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger asChild={asChild}>
+          {children}
+        </TooltipPrimitive.Trigger>
 
         <TooltipPrimitive.Portal>
           <TooltipPrimitive.Content
