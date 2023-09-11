@@ -1,4 +1,4 @@
-import Tooltip from "@/Shared/Tooltip";
+import Tooltip from "@/Shared/Tooltip/Tooltip";
 import profilePicture from "../../assets/profile-picture.jpg";
 
 type ProfileProps = {};

@@ -1,5 +1,5 @@
 import { Button } from "@/Shared/Button";
-import Tooltip from "@/Shared/Tooltip";
+import Tooltip from "@/Shared/Tooltip/Tooltip";
 import { InnerMoon } from "@theme-toggles/react";
 import "@theme-toggles/react/css/InnerMoon.css";
 import { useState, useEffect } from "react";

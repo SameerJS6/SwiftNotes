@@ -5,7 +5,7 @@ import Profile from "./Profile";
 import { Link } from "react-router-dom";
 import useRipple from "use-ripple-hook";
 import { useAuth } from "../../context/AuthContext";
-import Tooltip from "@/Shared/Tooltip";
+import Tooltip from "@/Shared/Tooltip/Tooltip";
 
 type HeaderProps = {
   setSidebarOpen: Dispatch<React.SetStateAction<boolean>>;
@@ -41,7 +41,10 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
                 </svg>
               </Button>
             )}
-            <Link to={currentUser ? "/home" : '/'} className="text-title-md text-onSurface sm:text-headline-lg lg:text-headline-lg">
+            <Link
+              to={currentUser ? "/home" : "/"}
+              className="text-title-md text-onSurface sm:text-headline-lg lg:text-headline-lg"
+            >
               Note Sync
             </Link>
           </div>
