@@ -151,12 +151,12 @@ body {
 }
 .onSurface {
   color: rgb(var(--on-surface));
-  @apply duration-250 absolute -top-2 left-3.5 bg-surfaceContainerLowest transition-all ease-in-out;
+  @apply absolute -top-2 left-3.5 bg-surfaceContainerLowest transition-all duration-250 ease-in-out;
 }
 
 /* Theme Toggle  */
 .theme-toggle > svg {
-  @apply duration-250 h-[22px] w-[22px] fill-onSurface/90 transition-all ease-in-out group-hover:fill-onSurface/100 sm:h-6 sm:w-6;
+  @apply h-[22px] w-[22px] fill-onSurface/90 transition-all duration-250 ease-in-out group-hover:fill-onSurface/100 sm:h-6 sm:w-6;
 }
 
 .sidebar {
@@ -164,4 +164,7 @@ body {
   /* top: 82.17px; */
   height: 100%;
   min-height: auto;
+}
+.focusState {
+  @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-onBackground focus-visible:ring-offset-2;
 }
