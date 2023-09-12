@@ -2,16 +2,14 @@ import { Button } from "@/Shared/Button";
 import Tooltip from "@/Shared/Tooltip/Tooltip";
 import { InnerMoon } from "@theme-toggles/react";
 import "@theme-toggles/react/css/InnerMoon.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext";
 
 type DarkModeProps = {};
 
 export default function DarkMode({}: DarkModeProps) {
-  const currentTheme = localStorage.getItem("noteSyncTheme");
-  const [isDark, setIsDark] = useState(currentTheme === "dark");
-
+  const { isDark, setIsDark } = useTheme();
   useEffect(() => {
-    localStorage.setItem("noteSyncTheme", isDark ? "dark" : "light");
     isDark
       ? document.body.classList.add("darkMode")
       : document.body.classList.remove("darkMode");
