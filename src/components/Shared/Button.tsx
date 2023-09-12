@@ -16,6 +16,7 @@ const buttonVariants = cva(
           "bg-transparent fill-onSecondaryContainer text-onSecondaryContainer hover:bg-secondaryContainer/80 active:bg-secondaryContainer",
         ghostSurface:
           "bg-transparent fill-onSurface text-onSurface hover:bg-surfaceDim/80 active:bg-surfaceDim",
+        link: "bg-transparent text-primary underline hover:text-primary/80 hover:underline-4 text-label-lg",
       },
       size: {
         default: "min-w-[80px] px-4 py-2",
