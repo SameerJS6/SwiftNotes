@@ -8,6 +8,7 @@ import Header from "@/UI/Header";
 import Sidebar from "@/UI/Sidebar";
 import { useState } from "react";
 import Fab from "@/UI/FAB";
+import NotFound from "./pages/NotFound";
 
 type Props = {};
 
@@ -144,14 +145,7 @@ export default function App({}: Props) {
               </ProtectedRoutes>
             }
           />
-          <Route
-            path="*"
-            element={
-              <h1 className="text-center text-display-lg text-error">
-                Not Found Page
-              </h1>
-            }
-          ></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </main>
     </>
