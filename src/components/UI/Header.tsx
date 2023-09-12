@@ -17,7 +17,7 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
   const [ripple, event] = useRipple({ color: "rgb(var(--surface), 0.15)" });
 
   return (
-    <header className="bg-surfaceContainerLow/50 py-4 transition-all duration-250 ease-in-out">
+    <header className="bg-surfaceContainerLow/50 py-2 transition-all duration-250 ease-in-out">
       <nav className="mx-auto max-w-[1440px] px-2 sm:px-8">
         <div className="flex items-center justify-between">
           {/* Left Side  */}

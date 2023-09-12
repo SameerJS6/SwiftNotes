@@ -36,9 +36,9 @@ export default function Login({}: Props) {
 
   useLayoutEffect(() => {
     if (currentUser) {
-    return  navigate('/account')
+      return navigate("/account");
     }
-  }, [currentUser])
+  }, [currentUser]);
   return (
     <article className="mx-auto w-full max-w-sm rounded-[2rem] bg-surfaceContainerLowest p-10 py-8 shadow-elevation-1 transition-all duration-250 ease-in-out">
       <h1 className="mb-6 text-display-sm capitalize text-onSurface">log in</h1>
