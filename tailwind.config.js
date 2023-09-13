@@ -58,6 +58,9 @@ export default {
       surfaceDim: withOpacity("--surface-dim"),
       surfaceBright: withOpacity("--surface-bright"),
 
+      surfaceVariant: withOpacity("--surface-variant"),
+      onSurfaceVariant: withOpacity("--on-surface-variant"),
+
       overlay: withOpacity("--overlay"),
 
       transparent: "transparent",
@@ -144,7 +147,7 @@ export default {
         },
         sidebarShow: {
           from: {
-            transform: "translate(-15%, 0)",
+            transform: "translate(-400px, 0)",
             opacity: 0,
           },
           to: {
@@ -164,10 +167,10 @@ export default {
         },
       },
       animation: {
-        overlayShow: "overlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
-        overlayHide: "overlayHide 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-        sidebarShow: "sidebarShow 250ms cubic-bezier(0.16, 1, 0.3, 1)",
-        sidebarHide: "sidebarHide 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        overlayShow: "overlayShow 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0)",
+        overlayHide: "overlayHide 200ms cubic-bezier(0.3, 0.0, 0.8, 0.15)",
+        sidebarShow: "sidebarShow 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0)",
+        sidebarHide: "sidebarHide 200ms cubic-bezier(0.3, 0.0, 0.8, 0.15);",
       },
     },
   },
