@@ -200,6 +200,7 @@ body {
 /* Popover  */
 .PopoverContent {
   animation-duration: 250ms;
+  will-change: transform, opacity;
   transform-origin: var(--radix-popover-content-transform-origin);
 }
 .PopoverContent[data-side="top"] {
@@ -212,7 +213,7 @@ body {
 }
 .PopoverContent[data-state="closed"] {
   animation-name: closeUp;
-  animation-duration: 100ms;
+  animation-duration: 200ms;
   animation-timing-function: cubic-bezier(0.3, 0, 1, 1);
 }
 

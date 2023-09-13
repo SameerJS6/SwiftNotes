@@ -170,7 +170,7 @@ export default {
         overlayShow: "overlayShow 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0)",
         overlayHide: "overlayHide 200ms cubic-bezier(0.3, 0.0, 0.8, 0.15)",
         sidebarShow: "sidebarShow 400ms cubic-bezier(0.05, 0.7, 0.1, 1.0)",
-        sidebarHide: "sidebarHide 200ms cubic-bezier(0.3, 0.0, 0.8, 0.15);",
+        sidebarHide: "sidebarHide 200ms cubic-bezier(0.3, 0.0, 0.8, 0.15)",
       },
     },
   },
