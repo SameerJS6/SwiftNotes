@@ -132,9 +132,9 @@ export default function Header({ setSidebarOpen }: HeaderProps) {
                 </Button>{" "}
               </Tooltip>
               <DarkMode />
-              <div className="p-2">
+              {/* <div className="p-2"> */}
                 <Profile />
-              </div>
+              {/* </div> */}
             </div>
           )}
         </div>

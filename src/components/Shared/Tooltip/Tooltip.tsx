@@ -26,7 +26,7 @@ export default function Tooltip({
         <TooltipPrimitive.Portal>
           <TooltipPrimitive.Content
             className={twMerge(
-              "TooltipContent rounded bg-secondary px-2 py-1 text-body-lg text-onSecondary",
+              "TooltipContent rounded bg-inverseSurface px-2 py-1 text-body-lg text-inverseOnSurface",
               className,
             )}
           >
