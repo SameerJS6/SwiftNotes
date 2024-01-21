@@ -3,27 +3,66 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  --primary: 8, 86, 207;
+  --on-primary: 255, 255, 255;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --primary-container: 218, 226, 255;
+  --on-primary-container: 0, 24, 71;
+
+  --secondary: 88, 94, 113;
+  --on-secondary: 255, 255, 255;
+
+  --secondary-container: 220, 226, 249;
+  --on-secondary-container: 21, 27, 44;
+
+  --tertiary: 115, 84, 113;
+  --on-tertiary: 255, 255, 255;
+
+  --tertiary-container: 254, 215, 249;
+  --on-tertiary-container: 43, 18, 44;
+
+  --error: 186, 26, 26;
+  --error-container: 255, 218, 214;
+
+  --on-error: 255, 255, 255;
+  --on-error-container: 65, 0, 2;
+
+  --outline: 117, 119, 128;
+  --outline-variant: 197, 198, 208;
+
+  --background: 254, 251, 255;
+  --on-background: 31, 31, 31;
+
+  --surface: 251, 248, 253;
+  --on-surface: 31, 31, 31;
+  --surface-dim: 219, 217, 221;
+  --surface-bright: 251, 248, 253;
+
+  --surface-variant: 225, 226, 236;
+  --on-surface-variant: 69, 70, 79;
+
+  --inverse-on-surface: 242, 240, 244;
+  --inverse-surface: 48, 48, 52;
+
+  --surface-container-highest: 228, 226, 230;
+  --surface-container-high: 233, 231, 236;
+  --surface-container: 239, 237, 241;
+  --surface-container-low: 245, 243, 247;
+  --surface-container-lowest: 255, 255, 255;
+
+  --overlay: 31, 31, 31;
+
+  --elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 1px 3px 1px rgb(0 0 0 / 15%);
+  --elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 2px 6px 2px rgb(0 0 0 / 15%);
+  --elevation-3: 0px 1px 3px 0px rgb(0 0 0 / 30%),
+    0px 4px 8px 3px rgb(0 0 0 / 15%);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--on-background));
+  background: rgb(var(--background));
 }
 
 @layer utilities {
