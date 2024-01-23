@@ -83,3 +83,35 @@ body {
   font-size: 18px !important;
   line-height: inherit !important;
 }
+.size-24p {
+  font-size: 24px !important;
+}
+/* .test {
+  --effect-color: radial-gradient(
+    circle,
+    transparent,
+    rgba(var(--inverse-surface), 0.2)
+  );
+  background: var(--effect-color), url(/Grain.svg);
+} */
+
+.button::before {
+  content: "";
+  inset: 0;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  transition: all 250ms ease-in-out;
+}
+
+.centeredRipple {
+  top: 50% !important;
+  left: 50% !important;
+}
+
+.smFAB > span {
+  font-size: 24px !important;
+}
+.lgFAB > span {
+  font-size: 36px !important;
+}

@@ -6,73 +6,144 @@ export default function Home() {
   return (
     <>
       <h1 className="p-4 text-display-sm">Swift Notes</h1>
-      <main className="m-4 flex  flex-wrap gap-4">
-        {/* <button className="group relative inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-[20px] bg-primary px-6 text-label-lg text-onPrimary transition-all duration-250 hover:shadow-elevation-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 active:rounded-xl disabled:pointer-events-none disabled:bg-onSurface disabled:bg-opacity-[0.12] disabled:text-onSurface disabled:text-opacity-[0.38] has-[span]:pl-4 has-[span]:pr-6">
-          <div className="pointer-events-none absolute inset-0 rounded-[20px] bg-onPrimary opacity-0 group-hover:opacity-[0.1]" />
-          <span className="material-symbols-rounded optical-24">settings</span>
-          Button
-        </button>
-
-        <button className="group relative inline-flex h-10 items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-[20px] border-[1.5px] border-outline px-6 text-label-lg text-primary transition-all duration-250 focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 active:rounded-xl disabled:pointer-events-none disabled:border-onSurface disabled:border-opacity-[0.12] disabled:bg-onSurface disabled:bg-opacity-[0] disabled:text-onSurface disabled:text-opacity-[0.38] has-[span]:pl-4 has-[span]:pr-6">
-          <div className="pointer-events-none absolute inset-0 bg-primary opacity-0 transition-colors duration-250 ease-in-out group-hover:opacity-[0.08] group-focus-visible:opacity-[0.08]" />
-          <span className="material-symbols-rounded optical-24">settings</span>
-          Button
-        </button> */}
-
-        <Button iconPosition="end" asChild>
-          <a
-            href="https://twitter.com/Sameerjs6"
-            target="_blank"
-            className="inline-flex items-center gap-2"
-          >
-            Twitter
+      <main className="m-4 space-y-4">
+        <p className="text-headline-md">Buttons</p>
+        <div className="flex flex-wrap gap-4">
+          <Button iconPosition="start" asChild>
+            <a
+              href="https://twitter.com/Sameerjs6"
+              target="_blank"
+              className="inline-flex items-center gap-2"
+            >
+              <span className="material-symbols-rounded optical-24">
+                north_east
+              </span>
+              Twitter
+            </a>
+          </Button>
+          <Button variant="outlined" iconPosition="start">
+            <span className="material-symbols-rounded optical-24">add</span>
+            Label
+          </Button>
+          <Button variant="elevated" iconPosition="both">
             <span className="material-symbols-rounded optical-24">
-              north_east
+              favorite
             </span>
-          </a>
-        </Button>
-
-        <Button variant="outlined" iconPosition="end">
-          Label
-          <span className="material-symbols-rounded optical-24">add</span>
-        </Button>
-
-        <Button variant="elevated" iconPosition="end">
-          Favorite
-          <span className="material-symbols-rounded optical-24">favorite</span>
-        </Button>
-
-        <Button variant="tonal" iconPosition="end" asChild>
-          <a
-            href="https://github.com/SameerJS6"
-            target="_blank"
-            className="inline-flex items-center gap-2"
-          >
-            GitHub
+            Favorite
             <span className="material-symbols-rounded optical-24">
-              north_east
+              expand_more
             </span>
-          </a>
-        </Button>
-
-        <Button
-          variant="text"
-          iconPosition="end"
-          className="hover:bg-primary/5"
-          asChild
-        >
-          <a
-            href="https://github.com/SameerJS6"
-            target="_blank"
-            className="inline-flex items-center gap-2"
-          >
-            Download
+          </Button>
+          <Button variant="tonal" iconPosition="start" asChild>
+            <a
+              href="https://github.com/SameerJS6"
+              target="_blank"
+              className="inline-flex items-center gap-2"
+            >
+              <span className="material-symbols-rounded optical-24">
+                north_east
+              </span>
+              GitHub
+            </a>
+          </Button>
+          <Button variant="text" iconPosition="start">
             <span className="material-symbols-rounded optical-24">
               download
             </span>
-          </a>
-        </Button>
+            Download
+          </Button>
+          <Button size="icon" iconPosition="iconOnly" centeredRipple>
+            <span className="material-symbols-rounded size-24p">bookmark</span>
+          </Button>
+          <Button
+            variant="tonal"
+            size="icon"
+            iconPosition="iconOnly"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded size-24p">mood</span>
+          </Button>
+          <Button
+            variant="outlined"
+            size="icon"
+            iconPosition="iconOnly"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded size-24p">search</span>
+          </Button>
+          <Button
+            variant="text"
+            size="icon"
+            iconPosition="iconOnly"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded size-24p">star</span>
+          </Button>
+        </div>
       </main>
+
+      <div className="space-y-4 px-4">
+        <p className="text-headline-md">FAB</p>
+        <div className="flex flex-wrap gap-4">
+          <Button variant="FAB" size="sm" iconPosition="fab" centeredRipple>
+            <span className="material-symbols-rounded">palette</span>
+          </Button>
+          <Button variant="FAB" size="fab" iconPosition="fab" centeredRipple>
+            <span className="material-symbols-rounded">chat</span>
+          </Button>
+          <Button variant="FAB" size="lg" iconPosition="fab" centeredRipple>
+            <span className="material-symbols-rounded">edit</span>
+          </Button>
+          <Button
+            variant="secondaryFAB"
+            size="lg"
+            iconPosition="fab"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded">edit</span>
+          </Button>
+          <Button
+            variant="secondaryFAB"
+            size="fab"
+            iconPosition="fab"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded">chat</span>
+          </Button>
+          <Button
+            variant="secondaryFAB"
+            size="sm"
+            iconPosition="fab"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded">palette</span>
+          </Button>
+          <Button
+            variant="tonalFAB"
+            size="sm"
+            iconPosition="fab"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded">palette</span>
+          </Button>
+          <Button
+            variant="tonalFAB"
+            size="fab"
+            iconPosition="fab"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded">chat</span>
+          </Button>
+          <Button
+            variant="tonalFAB"
+            size="lg"
+            iconPosition="fab"
+            centeredRipple
+          >
+            <span className="material-symbols-rounded">edit</span>
+          </Button>
+        </div>
+      </div>
     </>
   );
 }
