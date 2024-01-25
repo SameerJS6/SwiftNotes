@@ -94,54 +94,6 @@ export default function Home() {
           <Button variant="FAB" size="lg" iconPosition="fab" centeredRipple>
             <span className="material-symbols-rounded">edit</span>
           </Button>
-          <Button
-            variant="secondaryFAB"
-            size="lg"
-            iconPosition="fab"
-            centeredRipple
-          >
-            <span className="material-symbols-rounded">edit</span>
-          </Button>
-          <Button
-            variant="secondaryFAB"
-            size="fab"
-            iconPosition="fab"
-            centeredRipple
-          >
-            <span className="material-symbols-rounded">chat</span>
-          </Button>
-          <Button
-            variant="secondaryFAB"
-            size="sm"
-            iconPosition="fab"
-            centeredRipple
-          >
-            <span className="material-symbols-rounded">palette</span>
-          </Button>
-          <Button
-            variant="tonalFAB"
-            size="sm"
-            iconPosition="fab"
-            centeredRipple
-          >
-            <span className="material-symbols-rounded">palette</span>
-          </Button>
-          <Button
-            variant="tonalFAB"
-            size="fab"
-            iconPosition="fab"
-            centeredRipple
-          >
-            <span className="material-symbols-rounded">chat</span>
-          </Button>
-          <Button
-            variant="tonalFAB"
-            size="lg"
-            iconPosition="fab"
-            centeredRipple
-          >
-            <span className="material-symbols-rounded">edit</span>
-          </Button>
         </div>
       </div>
     </>
