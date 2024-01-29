@@ -65,12 +65,6 @@ body {
   background: rgb(var(--background));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 .optical-24 {
   font-variation-settings:
     "FILL" 0,
