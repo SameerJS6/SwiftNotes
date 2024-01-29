@@ -13,7 +13,7 @@ interface ButtonProps
 }
 
 const buttonVariants = cva(
-  `button group relative inline-flex h-10 text-center items-center justify-center gap-2 whitespace-nowrap rounded-[20px] px-6 text-label-lg transition-all duration-250 ease-in-out hover:shadow-elevation-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 active:rounded-xl disabled:pointer-events-none disabled:bg-onSurface disabled:bg-opacity-[0.12] disabled:text-onSurface disabled:text-opacity-[0.38] overflow-hidden hover:before:bg-primary hover:before:bg-opacity-[0.08] focus-visible:before:bg-primary focus-visible:before:bg-opacity-[0.1]`,
+  `button group relative inline-flex h-10 text-center items-center justify-center gap-2 whitespace-nowrap rounded-[20px] px-6 transition-all duration-250 ease-in-out hover:shadow-elevation-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 active:rounded-xl disabled:pointer-events-none disabled:bg-onSurface disabled:bg-opacity-[0.12] disabled:text-onSurface disabled:text-opacity-[0.38] overflow-hidden hover:before:bg-primary hover:before:bg-opacity-[0.08] focus-visible:before:bg-primary focus-visible:before:bg-opacity-[0.1] text-[14px] font-medium leading-5 tracking-[0.00625em]`,
   {
     variants: {
       variant: {
@@ -34,10 +34,12 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-10",
+        sm: "h-8",
+        xl: "h-12 rounded-[40px]",
         icon: "size-10 rounded-[30px]",
         full: "w-full h-11 rounded-[30px]",
-        sm: "rounded-xl size-10 smFAB",
-        lg: "rounded-[28px] size-24 lgFAB",
+        smFAB: "rounded-xl size-10 smFAB",
+        lgFAB: "rounded-[28px] size-24 lgFAB",
         fab: "rounded-2xl size-14 smFAB",
       },
       iconPosition: {
