@@ -15,7 +15,8 @@ export default function Hero() {
 
       <Button
         size="xl"
-        className="ml-2 text-[16px] font-normal leading-6 tracking-wide"
+        variant="FAB"
+        className="ml-2 text-[16px] font-medium leading-6 tracking-wide active:font-normal"
       >
         Get Started
         <span className="material-symbols-rounded">arrow_forward</span>
