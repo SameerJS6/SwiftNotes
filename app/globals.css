@@ -60,6 +60,16 @@
     0px 4px 8px 3px rgb(0 0 0 / 15%);
 }
 
+@layer utilities {
+  .gradFont {
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 200,
+      "opsz" 24;
+    transition: all 500ms ease-in-out;
+  }
+}
 body {
   color: rgb(var(--on-background));
   background: rgb(var(--background));
@@ -80,6 +90,15 @@ body {
 .size-24p {
   font-size: 24px !important;
 }
+
+/* .gradFont {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 200,
+    "opsz" 24;
+} */
+
 /* .test {
   --effect-color: radial-gradient(
     circle,
@@ -88,6 +107,10 @@ body {
   );
   background: var(--effect-color), url(/Grain.svg);
 } */
+
+.cl-internal-b3fm6y {
+  display: none !important;
+}
 
 .button::before {
   content: "";
