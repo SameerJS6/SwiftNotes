@@ -24,6 +24,7 @@ export default function Navigation() {
     } else {
       resetSidebarWidth(450);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   useEffect(() => {
