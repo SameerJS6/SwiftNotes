@@ -56,30 +56,24 @@ export default function UserItem() {
           <CustomDropdownItem
             onClick={() => toast("Swift Notes User's Profile")}
           >
-            <>
-              <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-                account_circle
-              </span>
-              Profile
-            </>
+            <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+              account_circle
+            </span>
+            Profile
           </CustomDropdownItem>
           <CustomDropdownItem>
-            <>
-              <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-                settings
-              </span>
-              Setting
-            </>
+            <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+              settings
+            </span>
+            Setting
           </CustomDropdownItem>
           <CustomDropdownItem>
-            <>
-              <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-                logout
-              </span>
-              <SignOutButton signOutCallback={() => router.push("/")}>
-                Log out
-              </SignOutButton>
-            </>
+            <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+              logout
+            </span>
+            <SignOutButton signOutCallback={() => router.push("/")}>
+              Log out
+            </SignOutButton>
           </CustomDropdownItem>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
