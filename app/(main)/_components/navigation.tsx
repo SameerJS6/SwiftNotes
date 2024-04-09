@@ -5,6 +5,7 @@ import { cn } from "@/utils/utils";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import UserItem from "./user-item";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -120,7 +121,7 @@ export default function Navigation() {
           onClick={collapseSidebar}
           centeredRipple
           className={cn(
-            "pointer-events-none absolute right-2 top-2 translate-x-2 scale-75  text-onSecondaryContainer opacity-0 group-hover/sidebar:pointer-events-auto group-hover/sidebar:translate-x-0 group-hover/sidebar:scale-100 group-hover/sidebar:opacity-100",
+            "pointer-events-none absolute right-2 top-2 translate-x-2 scale-75 text-onSecondaryContainer opacity-0 group-hover/sidebar:pointer-events-auto group-hover/sidebar:translate-x-0 group-hover/sidebar:scale-100 group-hover/sidebar:opacity-100",
             isMobile &&
               isTablet &&
               "pointer-events-auto translate-x-0 scale-100 opacity-100",
@@ -128,8 +129,8 @@ export default function Navigation() {
         >
           <span className="material-symbols-rounded size-24p">menu_open</span>
         </Button>
-        <div>
-          <p>Action Item</p>
+        <div className="mt-4 w-full rounded-2xl">
+          <UserItem />
         </div>
         <div className="mt-4">
           <p>Documents</p>
