@@ -3,6 +3,7 @@ import { Inter, Roboto } from "next/font/google";
 import "material-symbols/rounded.css";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import { Toaster } from "sonner";
 
 const roboto = Roboto({
   weight: ["400", "500"],
@@ -37,7 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+        <ConvexClientProvider>
+          {children}
+          <Toaster position="bottom-right" />
+        </ConvexClientProvider>
       </body>
     </html>
   );
