@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -104,6 +106,7 @@ export default function Navigation() {
     }
   };
 
+  const documents = useQuery(api.documents.getDocument);
   return (
     <>
       <aside
@@ -132,8 +135,16 @@ export default function Navigation() {
         <div className="mt-4 w-full rounded-2xl">
           <UserItem />
         </div>
-        <div className="mt-4">
-          <p>Documents</p>
+        <div className="mt-4 w-full space-y-2 px-2">
+          {documents?.map((document) => (
+            <Button
+              key={document._id}
+              variant="text"
+              className="w-full justify-start"
+            >
+              {document.title}
+            </Button>
+          ))}
         </div>
         <div
           onMouseDown={handleMouseDown}
