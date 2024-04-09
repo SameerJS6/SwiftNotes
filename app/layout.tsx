@@ -40,7 +40,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <ConvexClientProvider>
           {children}
-          <Toaster position="bottom-right" />
+          <Toaster richColors position="bottom-right" />
         </ConvexClientProvider>
       </body>
     </html>
