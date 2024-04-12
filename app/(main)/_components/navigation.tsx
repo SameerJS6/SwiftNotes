@@ -113,7 +113,7 @@ export default function Navigation() {
         ref={sidebarRef}
         className={cn(
           "group/sidebar relative z-[99999] flex min-h-dvh w-60 max-w-sm flex-col overflow-y-auto rounded-e-3xl bg-surfaceContainerLow text-onSurfaceVariant md:max-w-md",
-          isResetting && "transition-all duration-[450ms] ease-in-out",
+          isResetting && "transition-all duration-[450ms] ease-out",
           isMobile && isTablet && "w-0",
         )}
       >
@@ -132,7 +132,9 @@ export default function Navigation() {
         >
           <span className="material-symbols-rounded size-24p">menu_open</span>
         </Button>
-        <div className="mt-4 w-full rounded-2xl">
+        <div
+          className={`mt-4 w-full rounded-2xl ${isResetting && "transition-opacity duration-[10000] ease-out"}`}
+        >
           <UserItem />
         </div>
         <div className="mt-4 w-full space-y-2 px-2">
@@ -158,7 +160,7 @@ export default function Navigation() {
         ref={navRef}
         className={cn(
           "absolute left-60 top-0 z-[99999] w-[calc(100%-240px)]",
-          isResetting && "transition-all duration-[450ms] ease-in-out",
+          isResetting && "transition-all duration-[450ms] ease-out",
           isMobile && isTablet && "left-0 w-full",
         )}
       >
