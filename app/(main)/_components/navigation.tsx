@@ -140,6 +140,7 @@ export default function Navigation() {
             <Button
               key={document._id}
               variant="text"
+              size="sm"
               className="w-full justify-start"
             >
               {document.title}
