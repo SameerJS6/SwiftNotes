@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 
@@ -11,8 +11,10 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 import { toast } from "sonner";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function UserItem() {
+  const [open, setOpen] = useState(false);
   const { user } = useUser();
   const [ref, event] = useRipple({
     color:
@@ -20,7 +22,7 @@ export default function UserItem() {
   });
   const router = useRouter();
   return (
-    <DropdownMenu.Root>
+    <DropdownMenu.Root open={open} onOpenChange={setOpen}>
       <DropdownMenu.Trigger asChild>
         <div
           ref={ref}
@@ -42,41 +44,65 @@ export default function UserItem() {
             <span className="line-clamp-1 text-body-md">
               {user?.fullName}&apos;s Notes
             </span>
-            <span className="material-symbols-rounded size-24p">
+            <motion.span
+              initial={{ rotate: 0 }}
+              animate={{ rotate: open ? 180 : 0 }}
+              className="material-symbols-rounded size-24p"
+            >
               expand_more
-            </span>
+            </motion.span>
           </div>
         </div>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          sideOffset={5}
-          className="z-[99999] min-w-48 max-w-72 rounded-md bg-surfaceContainer py-2 text-onSecondaryContainer shadow-elevation-1"
-        >
-          <CustomDropdownItem
-            onClick={() => toast("Swift Notes User's Profile")}
-          >
-            <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-              account_circle
-            </span>
-            Profile
-          </CustomDropdownItem>
-          <CustomDropdownItem>
-            <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-              settings
-            </span>
-            Setting
-          </CustomDropdownItem>
-          <CustomDropdownItem>
-            <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-              logout
-            </span>
-            <SignOutButton signOutCallback={() => router.push("/")}>
-              Log out
-            </SignOutButton>
-          </CustomDropdownItem>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
+      <AnimatePresence>
+        {open && (
+          <DropdownMenu.Portal forceMount>
+            <DropdownMenu.Content
+              asChild
+              align="center"
+              sideOffset={5}
+              className="z-[99999] min-w-48 max-w-72 overflow-hidden rounded-md bg-surfaceContainer text-onSecondaryContainer "
+            >
+              <motion.div
+                initial={{ height: 0, opacity: 0.75, boxShadow: "0" }}
+                animate={{
+                  height: "auto",
+                  opacity: 1,
+                  boxShadow:
+                    "0px 1px 2px 0px rgb(0 0 0 / 0.3), 0px 1px 3px 1px rgb(0 0 0 / 0.15)",
+                }}
+                exit={{ height: 0, opacity: 0.75, boxShadow: "0" }}
+              >
+                <CustomDropdownItem
+                  onClick={() => toast("Swift Notes User's Profile")}
+                  className="mt-2"
+                >
+                  <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+                    account_circle
+                  </span>
+                  Profile
+                </CustomDropdownItem>
+
+                <CustomDropdownItem>
+                  <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+                    settings
+                  </span>
+                  Setting
+                </CustomDropdownItem>
+
+                <CustomDropdownItem className="mb-2">
+                  <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+                    logout
+                  </span>
+                  <SignOutButton signOutCallback={() => router.push("/")}>
+                    Log out
+                  </SignOutButton>
+                </CustomDropdownItem>
+              </motion.div>
+            </DropdownMenu.Content>
+          </DropdownMenu.Portal>
+        )}
+      </AnimatePresence>
     </DropdownMenu.Root>
   );
 }
