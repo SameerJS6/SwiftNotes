@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 
@@ -11,7 +11,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 import { toast } from "sonner";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimationControls } from "framer-motion";
 
 export default function UserItem() {
   const [open, setOpen] = useState(false);
@@ -21,6 +21,17 @@ export default function UserItem() {
       "radial-gradient(circle, transparent, rgba(var(--inverse-surface), 0.2)),url(/Grain.svg)",
   });
   const router = useRouter();
+  let controls = useAnimationControls();
+  const closeMenu = async () => {
+    await controls.start("closed");
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (open) {
+      controls.start("open");
+    }
+  }, [controls, open]);
   return (
     <DropdownMenu.Root open={open} onOpenChange={setOpen}>
       <DropdownMenu.Trigger asChild>
@@ -41,12 +52,18 @@ export default function UserItem() {
             </AvatarFallback>
           </Avatar>
           <div className="flex items-center">
-            <span className="line-clamp-1 text-body-md">
+            <span className="line-clamp-1 text-body-lg">
               {user?.fullName}&apos;s Notes
             </span>
             <motion.span
-              initial={{ rotate: 0 }}
-              animate={{ rotate: open ? 180 : 0 }}
+              initial={{
+                rotate: 0,
+              }}
+              animate={{
+                rotate: open ? 180 : 0,
+                transition: { duration: 0.2, ease: "easeOut" },
+              }}
+              transition={{ duration: 0.2 }}
               className="material-symbols-rounded size-24p"
             >
               expand_more
@@ -61,21 +78,33 @@ export default function UserItem() {
               asChild
               align="center"
               sideOffset={5}
-              className="z-[99999] min-w-48 max-w-72 overflow-hidden rounded-md bg-surfaceContainer text-onSecondaryContainer "
+              className="z-[99999] min-w-48 max-w-72 overflow-hidden rounded-md bg-surfaceContainer"
             >
               <motion.div
-                initial={{ height: 0, opacity: 0.75, boxShadow: "0" }}
-                animate={{
-                  height: "auto",
-                  opacity: 1,
-                  boxShadow:
-                    "0px 1px 2px 0px rgb(0 0 0 / 0.3), 0px 1px 3px 1px rgb(0 0 0 / 0.15)",
+                initial="closed"
+                animate={controls}
+                exit="closed"
+                variants={{
+                  open: {
+                    height: "auto",
+                    opacity: 1,
+                    boxShadow:
+                      "0px 1px 2px 0px rgb(0 0 0 / 0.3), 0px 1px 3px 1px rgb(0 0 0 / 0.15)",
+                    transition: { duration: 0.4, ease: "easeOut" },
+                  },
+                  closed: {
+                    height: 0,
+                    opacity: 0.75,
+                    boxShadow: "0",
+                    transition: { duration: 0.2, ease: "easeIn" },
+                  },
                 }}
-                exit={{ height: 0, opacity: 0.75, boxShadow: "0" }}
               >
                 <CustomDropdownItem
-                  onClick={() => toast("Swift Notes User's Profile")}
+                  index={1}
                   className="mt-2"
+                  closeMenu={closeMenu}
+                  onClick={() => toast("Swift Notes User's Profile")}
                 >
                   <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
                     account_circle
@@ -83,20 +112,32 @@ export default function UserItem() {
                   Profile
                 </CustomDropdownItem>
 
-                <CustomDropdownItem>
+                <CustomDropdownItem
+                  index={2}
+                  closeMenu={closeMenu}
+                  onClick={() =>
+                    alert("Testing if awaiting is working or not.")
+                  }
+                >
                   <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
                     settings
                   </span>
                   Setting
                 </CustomDropdownItem>
 
-                <CustomDropdownItem className="mb-2">
-                  <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
-                    logout
-                  </span>
-                  <SignOutButton signOutCallback={() => router.push("/")}>
-                    Log out
-                  </SignOutButton>
+                <CustomDropdownItem
+                  index={2}
+                  className="mb-2"
+                  closeMenu={closeMenu}
+                >
+                  <>
+                    <span className="material-symbols-rounded size-24p text-onSurfaceVariant">
+                      logout
+                    </span>
+                    <SignOutButton signOutCallback={() => router.push("/")}>
+                      Log out
+                    </SignOutButton>
+                  </>
                 </CustomDropdownItem>
               </motion.div>
             </DropdownMenu.Content>

@@ -3,62 +3,63 @@
 import React, { ReactNode } from "react";
 
 import useRipple from "use-ripple-hook";
+
 import {
   DropdownMenuItem,
   DropdownMenuItemProps,
 } from "@radix-ui/react-dropdown-menu";
-import { motion, useAnimationControls } from "framer-motion";
+
 import { cn } from "@/utils/utils";
+import { motion } from "framer-motion";
 
 interface IDropdownItemProps extends DropdownMenuItemProps {
+  index: number;
   onClick?: () => void;
   children: ReactNode;
+  closeMenu: () => Promise<void>;
 }
 
 export default function CustomDropdownItem({
+  index,
   children,
   onClick,
   className,
+  closeMenu,
   ...props
 }: IDropdownItemProps) {
   const [ref, event] = useRipple({
     color: "rgba(var(--on-surface), 0.1)",
   });
-  let controls = useAnimationControls();
   return (
     <DropdownMenuItem
       ref={ref}
       onMouseDown={event}
-      onClick={(e) => {
+      onSelect={async (e) => {
         e.preventDefault();
-
-        controls.start({
-          backgroundColor: "red",
-          color: "white",
-          transition: { duration: 1 },
-        });
-
+        await closeMenu();
         onClick && onClick();
       }}
       {...props}
       className={cn(
-        "relative h-11 w-full cursor-pointer select-none rounded-sm px-3 outline-none transition-all duration-250 ease-in-out data-[highlighted]:bg-onSurface/[0.08]",
+        "relative h-11 w-full cursor-pointer select-none rounded-sm px-3 text-onSecondaryContainer outline-none transition-all duration-250 ease-in-out data-[highlighted]:bg-onSurface/[0.08]",
         className,
       )}
     >
       <motion.div
-        initial={{
-          opacity: 0.25,
-          y: "-80px",
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: { delay: 0.1, ease: "circOut" },
-        }}
-        exit={{
-          opacity: 0.25,
-          y: "-80px",
+        initial="hidden"
+        animate="open"
+        exit="hidden"
+        custom={index}
+        variants={{
+          hidden: (index) => ({
+            opacity: 0,
+            y: -40 * index,
+          }),
+          open: (index) => ({
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.025 * index, ease: "easeOut" },
+          }),
         }}
         className="flex h-full items-center gap-3"
       >
