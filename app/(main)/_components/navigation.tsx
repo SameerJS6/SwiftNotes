@@ -137,6 +137,14 @@ export default function Navigation() {
         >
           <UserItem />
         </div>
+
+        <div className="mt-4 w-full rounded-2xl px-2">
+          <Button variant="tonal" iconPosition="start" size="full">
+            <span className="material-symbols-rounded">add_circle</span>
+            New Document
+          </Button>
+        </div>
+
         <div className="mt-4 w-full space-y-2 px-2">
           {documents?.map((document) => (
             <Button
