@@ -4,6 +4,7 @@ import "material-symbols/rounded.css";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { Toaster } from "sonner";
+import { ViewTransitions } from "next-view-transitions";
 
 const roboto = Roboto({
   weight: ["400", "500"],
@@ -36,13 +37,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
-        <ConvexClientProvider>
-          {children}
-          <Toaster richColors position="bottom-right" />
-        </ConvexClientProvider>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body className={roboto.className}>
+          <ConvexClientProvider>
+            {children}
+            <Toaster richColors position="bottom-right" />
+          </ConvexClientProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
