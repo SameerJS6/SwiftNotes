@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
+import Item from "./item";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -107,12 +109,26 @@ export default function Navigation() {
   };
 
   const documents = useQuery(api.documents.getDocument);
+
+  const create = useMutation(api.documents.create);
+
+  const handleCreateNote = () => {
+    const response = create({
+      title: "Untitled",
+    });
+
+    toast.promise(response, {
+      loading: "Creating note....",
+      success: "New note created!",
+      error: "Failed to create a new note",
+    });
+  };
   return (
     <>
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar relative z-[99999] flex min-h-dvh w-60 max-w-sm flex-col overflow-y-auto rounded-e-3xl bg-surfaceContainerLow text-onSurfaceVariant md:max-w-md",
+          "group/sidebar relative z-[99999] flex min-h-dvh w-60 max-w-sm flex-col overflow-y-auto rounded-e-3xl bg-primaryContainer/15 text-onSurfaceVariant md:max-w-md",
           isResetting && "transition-all duration-[450ms] ease-out",
           isMobile && isTablet && "w-0",
         )}
@@ -136,26 +152,55 @@ export default function Navigation() {
           className={`mt-4 w-full rounded-2xl ${isResetting && "transition-opacity duration-[10000] ease-out"}`}
         >
           <UserItem />
-        </div>
 
-        <div className="mt-4 w-full rounded-2xl px-2">
-          <Button variant="tonal" iconPosition="start" size="full">
-            <span className="material-symbols-rounded">add_circle</span>
-            New Document
-          </Button>
-        </div>
-
-        <div className="mt-4 w-full space-y-2 px-2">
-          {documents?.map((document) => (
+          <div className="mt-4 w-full rounded-2xl px-2">
             <Button
-              key={document._id}
-              variant="text"
-              size="sm"
-              className="w-full justify-start"
+              variant="FAB"
+              iconPosition="start"
+              size="full"
+              onClick={handleCreateNote}
             >
-              {document.title}
+              <span className="material-symbols-rounded">add_circle</span>
+              New Document
             </Button>
-          ))}
+
+            <Button
+              variant="text"
+              iconPosition="start"
+              size="full"
+              className="my-2 justify-between text-secondary"
+            >
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-rounded size-24p">
+                  search
+                </span>
+                Search
+              </div>
+              <kbd className="flex select-none items-center gap-0.5 rounded-full border border-surfaceContainerHighest bg-surfaceContainerLow px-2 text-[12px] font-medium tracking-widest text-onSurface">
+                <span className="">⌘</span> K
+              </kbd>
+            </Button>
+          </div>
+
+          <div className="mt-4 w-full space-y-2 px-2">
+            {documents?.map((document, index) => (
+              <Item
+                icon="draft"
+                key={document._id}
+                title={document.title}
+                onClick={() => console.log("Clicked on Item")}
+                active={index === 0}
+              />
+              // <Button
+              //   key={document._id}
+              //   variant="text"
+              //   size="sm"
+              //   className="w-full justify-start"
+              // >
+              //   {document.title}
+              // </Button>
+            ))}
+          </div>
         </div>
         <div
           onMouseDown={handleMouseDown}
