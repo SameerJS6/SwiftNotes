@@ -5,7 +5,8 @@ import { SignInButton } from "@clerk/clerk-react";
 
 import { Button } from "@/components/ui/Button";
 import Spinner from "@/components/ui/spinner";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
+// import Link from "next/link";
 
 export default function Hero() {
   const { isAuthenticated, isLoading } = useConvexAuth();
