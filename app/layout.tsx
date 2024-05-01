@@ -5,6 +5,7 @@ import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { Toaster } from "sonner";
 import { ViewTransitions } from "next-view-transitions";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const roboto = Roboto({
   weight: ["400", "500"],
@@ -40,10 +41,17 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en">
         <body className={roboto.className}>
-          <ConvexClientProvider>
-            {children}
-            <Toaster richColors position="bottom-right" />
-          </ConvexClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableColorScheme
+            enableSystem
+          >
+            <ConvexClientProvider>
+              {children}
+              <Toaster richColors position="bottom-right" />
+            </ConvexClientProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ViewTransitions>
