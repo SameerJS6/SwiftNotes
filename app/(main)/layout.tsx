@@ -22,7 +22,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="flex h-full">
+    <div className="mx-auto flex h-full max-w-screen-2xl">
       <Navigation />
       <main className="h-full flex-1 overflow-y-auto">{children}</main>
     </div>
