@@ -15,7 +15,20 @@ export default function Navbar() {
     <header
       className={`flex items-center justify-between px-4 py-4 sm:px-8 ${scrolled && "-translate-y-20"} transition-transform duration-250 ease-in-out`}
     >
-      <Image src="/logo.svg" height="40" width="40" alt="Jotion Logo" />
+      <Image
+        src="/logo.svg"
+        height="40"
+        width="40"
+        alt="Jotion Logo"
+        className="block dark:hidden"
+      />
+      <Image
+        src="/logo-dark.svg"
+        height="40"
+        width="40"
+        alt="Jotion Logo"
+        className="hidden dark:block"
+      />
 
       <div className="flex items-center gap-2">
         {!isAuthenticated && !isLoading && (
