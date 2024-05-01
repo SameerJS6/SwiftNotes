@@ -60,6 +60,64 @@
     0px 4px 8px 3px rgb(0 0 0 / 15%);
 }
 
+.dark {
+  --primary: 178, 197, 255;
+  --on-primary: 0, 43, 114;
+
+  --primary-container: 0, 64, 161;
+  --on-primary-container: 218, 226, 255;
+
+  --secondary: 192, 198, 221;
+  --on-secondary: 42, 48, 66;
+
+  --secondary-container: 64, 70, 89;
+  --on-secondary-container: 220, 226, 249;
+
+  --tertiary: 225, 187, 221;
+  --on-tertiary: 65, 39, 65;
+
+  --tertiary-container: 90, 61, 89;
+  --on-tertiary-container: 254, 215, 249;
+
+  --error: 255, 180, 171;
+  --on-error: 105, 0, 5;
+
+  --error-container: 147, 0, 10;
+  --on-error-container: 255, 218, 214;
+
+  --outline: 143, 144, 154;
+  --outline-variant: 69, 70, 79;
+
+  --background: 27, 27, 31;
+  --on-background: 228, 226, 230;
+
+  --surface: 19, 19, 22;
+  --on-surface: 199, 198, 202;
+  --surface-dim: 19, 19, 22;
+  --surface-bright: 57, 57, 60;
+
+  --surface-variant: 69, 70, 79;
+  --on-surface-variant: 197, 198, 208;
+
+  --inverse-on-surface: 27, 27, 31;
+  --inverse-surface: 228, 226, 230;
+
+  --surface-container-highest: 52, 52, 56;
+  --surface-container-high: 41, 42, 45;
+  --surface-container: 31, 31, 35;
+  --surface-container-low: 27, 27, 31;
+  --surface-container-lowest: 13, 14, 17;
+
+  --overlay: 31, 31, 31;
+
+  --elevation-1: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 1px 3px 1px rgb(0 0 0 / 15%);
+  --elevation-2: 0px 1px 2px 0px rgb(0 0 0 / 30%),
+    0px 2px 6px 2px rgb(0 0 0 / 15%);
+  --elevation-3: 0px 1px 3px 0px rgb(0 0 0 / 30%),
+    0px 4px 8px 3px rgb(0 0 0 / 15%);
+}
+
 @layer utilities {
   .gradFont {
     font-variation-settings:
